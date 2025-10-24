@@ -80,7 +80,7 @@
 </head>
 <body>
   <div class="quiz-container">
-    <h1>Quiz App</h1>
+    <h1>LTO Exam Reviewer</h1>
     <div id="quiz-content">
       <p class="question" id="question"></p>
       <div id="options"></div>
@@ -278,10 +278,10 @@
       scoreEl.textContent = `${score} / ${shuffledQuestions.length}`;
       const percentage = (score / shuffledQuestions.length) * 100;
       let msg = "";
-      if (percentage >= 90) msg = "Excellent! You're a pro driver!";
-      else if (percentage >= 75) msg = "Good job! Keep practicing!";
-      else if (percentage >= 50) msg = "Not bad, you can do better!";
-      else msg = "Keep studying! You’ll get there!";
+      if (percentage >= 20) msg = "Yown! Perfect na to sa LTO :D!";
+      else if (percentage >= 17) msg = "Good job! Papasa na :)!";
+      else if (percentage >= 16) msg = "Pwede na!, review pa para sure!";
+      else msg = "Retake lang! Kaya yan!";
       messageEl.textContent = msg;
     }
 
@@ -292,3 +292,4 @@
   </script>
 </body>
 </html>
+
