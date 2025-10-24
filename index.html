@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .quiz-container {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .option {
+      display: block;
+      background: #3498db;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    .option:hover {
+      background: #2980b9;
+    }
+    .option.correct {
+      background: #2ecc71 !important;
+    }
+    .option.wrong {
+      background: #e74c3c !important;
+    }
+    .next-btn, .restart-btn {
+      background: #2d3436;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    .next-btn:hover, .restart-btn:hover {
+      background: #636e72;
+    }
+    .score-section {
+      text-align: center;
+      color: #2d3436;
+    }
+    .label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Quiz App</h1>
+    <div id="quiz-content">
+      <p class="question" id="question"></p>
+      <div id="options"></div>
+      <button id="next-btn" class="next-btn" style="display:none;">Next</button>
+    </div>
+    <div id="result" class="score-section" style="display:none;">
+      <h2>Your Score: <span id="score"></span></h2>
+      <p id="message"></p>
+      <button id="restart-btn" class="restart-btn">Retake Quiz</button>
+    </div>
+  </div>
+
+  <script>
+    const questionBank = [
+      {
+        question: "Sa rotunda, alin ang higit na may prioridad?",
+        options: ["A. Ang mga sasakyan sa loob ng rotunda", "B. Ang mga sasakyang papuntang rotunda", "C. Ang mga sasakyang nakaharap sa berdeng ilaw"],
+        answer: "A. Ang mga sasakyan sa loob ng rotunda"
+      },
+      {
+        question: "Tama ba na maaaring kumuha ng 'Student-driver's Pemit kahit may sakit na tuberculosis o sakit na naililipat sa pamamagitan ng pagtatalik?",
+        options: ["A. OO", "B. HINDI", "C. OO, subalit dapat na tiyak na naksaad sa Student Permit"],
+        answer: "A. OO"
+      },
+      {
+        question: "Kapag sinusundan ng ambulansiyang may kumikislap na ilaw, dapat:",
+        options: ["A. biglang prumeno at agarang huminto sa daan", "B. ituloy lang ang bilis ng takbo", "C. gumilid at paraanin ito"],
+        answer: "C. gumilid at paraanin ito"
+      },
+      {
+        question: "Sa interseksiyon na walang mga traffic sign na nagsasabing huminto o magbigay ng daan, dalawang sasakyan ang sabay dumating. Aling drayber ang dapat na magbigay ng daan?",
+        options: ["A. Ang drayber ng sasakyan sa kanan", "B. Ang drayber ng sasakyan sa kaliwa", "C. Alinman sa dalawa ay may unang karapatan sa daan"],
+        answer: "B. Ang drayber ng sasakyan sa kaliwa"
+      },
+      {
+        question: "Kapag pumaparada sa kalsadang pababa na may bangketa, dapat iayon/ipaling ang mga gulong:",
+        options: ["A. sa direksyon ng bangketa sa kalsada o patungo sa tabi ng daan", "B. palayo sa bangketa", "C. kahit sa alinmang direksyon"],
+        answer: "A. sa direksyon ng bangketa sa kalsada o patungo sa tabi ng daan"
+      },
+      {
+        question: "Nagmamaneho ka sa expressway. Hihinto ka lamang:",
+        options: ["A. kapag nagsasakay o nagbababa ng kargamento o pasahero", "B. sa lay-by upang sumagot o tumawag ng emergency", "C. kapag magtatanong ng mga direksyon"],
+        answer: "B. sa lay-by upang sumagot o tumawag ng emergency"
+      },
+      {
+        question: "Maa-ari ka bang kumanan kapag pula ang nakailaw?",
+        options: ["A. Oo, ito ay protektadong pagliko, kaya may karapatan ka sa daan", "B. Oo, puwede pero pagkatapos lamang na nakahinto at nagparaan sa mga sasakyan", "C. Oo, puwede kung may karatula na nagpapahintulot sa iyo na gawin ito. Ang karatula ay maaaring nagsasabing \"Turn Right With Care on Red Signal after a Full Stop\""],
+        answer: "C. Oo, puwede kung may karatula na nagpapahintulot sa iyo na gawin ito. Ang karatula ay maaaring nagsasabing \"Turn Right With Care on Red Signal after a Full Stop\""
+      },
+      {
+        question: "Ang traffic sign, traffic signal, mga babala at pavement markings ay para lamang sa:",
+        options: ["A. Motorista lamang", "B. Mga taong dumaraan lamang", "C. Lahat ng gumagamit ng kalsada"],
+        answer: "C. Lahat ng gumagamit ng kalsada"
+      },
+      {
+        question: "Ano ang dapat mong gawin kung ikaw ay napipilitang magmaneho ng mabilis dahil sa mga motoristang nasa likuran mo?",
+        options: ["A. Gamit ang directional signal, unti unting lumipat sa daanan ng mga sasakyang mabagal ang takbo, at hayaang makalampas ang mabibilis na sasakyan sa iyong kaliwa", "B. Tapakan ang preno ng isa o dalawang beses habang paalis sa kalsada", "C. Buksan ang hazard habang tumatakbo ng mabilis"],
+        answer: "A. Gamit ang directional signal, unti unting lumipat sa daanan ng mga sasakyang mabagal ang takbo, at hayaang makalampas ang mabibilis na sasakyan sa iyong kaliwa"
+      },
+      {
+        question: "Ano ang dapat mong gawin kung may mga sasakyang lumalampas sa iyong kaliwa?",
+        options: ["A. Huminto at hayaang makalampas ang mga sasakyan", "B. Panatilihin o di kaya'y bagalan ang takbo at manatili sa kanan", "C. Bagalan ang takbo at lumipat ng daanan o lane"],
+        answer: "B. Panatilihin o di kaya'y bagalan ang takbo at manatili sa kanan"
+      },
+      {
+        question: "Ano ang ibig sabihin ng kumikislap na pulang ilaw pantrapiko?",
+        options: ["A. Huminto sa guhit/linya ng paghinto at hintayin ang traffic enforcer", "B. Bilisan ang takbo para maunahan ang pulang ilaw", "C. Huminto sa guhit ng paghinto at dumiretsyo kung WALANG panganib"],
+        answer: "C. Huminto sa guhit ng paghinto at dumiretsyo kung WALANG panganib"
+      },
+      {
+        question: "Ano ang mangyayari kung nag-iiwan ka ng sapat na espasyo sa pagitan ng iyong sasakyan at ng sasakyan sa unahan?",
+        options: ["A. Maaaring makasingit ang ibang motorista", "B. Higit na madali kang makaiikot at makakaatras", "C. Maaaring businahan ka ng ibang motorista at lampasan ka"],
+        answer: "B. Higit na madali kang makaiikot at makakaatras"
+      },
+      {
+        question: "Ang mga drayber na higit na mabagal sa iba ay dapat na nasa:",
+        options: ["A. Daanan o lane sa gawing labas", "B. Gitnang daanan o lane", "C. Gawing loob na daanan o lane"],
+        answer: "A. Daanan o lane sa gawing labas"
+      },
+      {
+        question: "Saan dapat nakaayon/nakapaling ang gulong kung pumaparada sa lugar na pataas na malapit sa gilid ng bangketa?",
+        options: ["A. Diretsyo o paayon sa kalsada", "B. Palayo sa gilid ng bangketa", "C. Patungo sa gilid ng bangketa"],
+        answer: "B. Palayo sa gilid ng bangketa"
+      },
+      {
+        question: "Kung nagmamaneho sa daanan o lane na malapit sa dulo nito, ano ang una mong dapat gawin upang makapasok nang hindi nakakaabala sa daloy ng ibang trapiko?(Rule of continuity line)",
+        options: ["A. Lumipat bigla ng daanan o lane sa kaliwa", "B. I-angkop ang bilis ng takbo sa daloy ng trapiko", "C. Pumili ng isang angkop na agwat sa kaliwang daanan o lane"],
+        answer: "B. I-angkop ang bilis ng takbo sa daloy ng trapiko"
+      },
+      {
+        question: "Alin sa mga Sumusunod ang magpapahusay sa pagkonsumo ng gasolina?",
+        options: ["A. Maikling paglalakbay na may malamig na makina tuwing gabi", "B. Pagbabawas ng bilis, tamang pagpepreno at pagpaplano ng maayos", "C. Pagmamaneho sa mga higit na mababang kambiyo habang bukas ang aircon"],
+        answer: "B. Pagbabawas ng bilis, tamang pagpepreno at pagpaplano ng maayos"
+      },
+      {
+        question: "Alin sa sumusunod na accessory ang ipinag-uutos na marpanatili sa magandang kondisyon?",
+        options: ["A. Seatbelt", "B. Headlights", "C. Lahat ng nabanggit"],
+        answer: "C. Lahat ng nabanggit"
+      },
+      {
+        question: "Kapag pumaparada paahon na daan, dapat mong:",
+        options: ["A. Iliko ang iyong gulong sa gilid ng kalsada", "B. Iliko ang iyong gulong papalayo sa gilid ng kalsada", "C. Iliko ang iyong gulong kahanay ng kalsada"],
+        answer: "B. Iliko ang iyong gulong papalayo sa gilid ng kalsada"
+      },
+      {
+        question: "Anong uri ng insurance ang kinakailangan para sa mga sasakyan?",
+        options: ["A. Comprehensive", "B. Third party", "C. Lahat ng nabanggit"],
+        answer: "B. Third party"
+      },
+      {
+        question: "Kapag nagmamaneho ng sasakyan na may Anti-lock Braking System (ABS) sa pinakamabilis na takbo at kailangan mong biglaang huminto, ano ang dapat mong gawin?",
+        options: ["A. Apakan ang pedal ng preno ng tuloy-tuloy", "B. Pumreno ng banayad", "C. Bombahin ang preno"],
+        answer: "B. Pumreno ng banayad"
+      },
+      
+
+      // Add up to 100 questions
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let shuffledQuestions = [];
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextBtn = document.getElementById("next-btn");
+    const resultEl = document.getElementById("result");
+    const quizContent = document.getElementById("quiz-content");
+    const scoreEl = document.getElementById("score");
+    const messageEl = document.getElementById("message");
+    const restartBtn = document.getElementById("restart-btn");
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function startQuiz() {
+      shuffledQuestions = shuffleArray(questionBank);
+      currentQuestionIndex = 0;
+      score = 0;
+      quizContent.style.display = "block";
+      resultEl.style.display = "none";
+      showQuestion();
+    }
+
+    function showQuestion() {
+      nextBtn.style.display = "none";
+      const currentQuestion = shuffledQuestions[currentQuestionIndex];
+      questionEl.textContent = `Q${currentQuestionIndex + 1}: ${currentQuestion.question}`;
+      optionsEl.innerHTML = "";
+      const shuffledOptions = shuffleArray(currentQuestion.options);
+
+      shuffledOptions.forEach((optionText, i) => {
+        const btn = document.createElement("button");
+        btn.classList.add("option");
+        btn.innerHTML = `<span class="label">${String.fromCharCode(65 + i)}.</span> ${optionText}`;
+        btn.onclick = () => selectAnswer(btn, currentQuestion.answer);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(selectedBtn, correctAnswer) {
+      const options = document.querySelectorAll(".option");
+      options.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent.includes(correctAnswer)) {
+          btn.classList.add("correct");
+        }
+      });
+      if (!selectedBtn.textContent.includes(correctAnswer)) {
+        selectedBtn.classList.add("wrong");
+      } else {
+        score++;
+      }
+      nextBtn.style.display = "block";
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < shuffledQuestions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    }
+
+    function showScore() {
+      quizContent.style.display = "none";
+      resultEl.style.display = "block";
+      scoreEl.textContent = `${score} / ${shuffledQuestions.length}`;
+      const percentage = (score / shuffledQuestions.length) * 100;
+      let msg = "";
+      if (percentage >= 90) msg = "Excellent! You're a pro driver!";
+      else if (percentage >= 75) msg = "Good job! Keep practicing!";
+      else if (percentage >= 50) msg = "Not bad, you can do better!";
+      else msg = "Keep studying! You’ll get there!";
+      messageEl.textContent = msg;
+    }
+
+    nextBtn.addEventListener("click", nextQuestion);
+    restartBtn.addEventListener("click", startQuiz);
+
+    startQuiz();
+  </script>
+</body>
+</html>
