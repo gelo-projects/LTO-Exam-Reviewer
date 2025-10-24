@@ -95,106 +95,357 @@
 
   <script>
     const questionBank = [
-      {
+      {//1
         question: "Sa rotunda, alin ang higit na may prioridad?",
         options: ["Ang mga sasakyan sa loob ng rotunda", "Ang mga sasakyang papuntang rotunda", "Ang mga sasakyang nakaharap sa berdeng ilaw"],
         answer: "Ang mga sasakyan sa loob ng rotunda"
       },
-      {
+      {//2
         question: "Tama ba na maaaring kumuha ng 'Student-driver's Pemit kahit may sakit na tuberculosis o sakit na naililipat sa pamamagitan ng pagtatalik?",
         options: ["Oo", "HINDI", "OO, subalit dapat na tiyak na naksaad sa Student Permit"],
         answer: "Oo"
       },
-      {
+      {//3
         question: "Kapag sinusundan ng ambulansiyang may kumikislap na ilaw, dapat:",
         options: ["biglang prumeno at agarang huminto sa daan", "ituloy lang ang bilis ng takbo", "gumilid at paraanin ito"],
         answer: "gumilid at paraanin ito"
       },
-      {
+      {//4
         question: "Sa interseksiyon na walang mga traffic sign na nagsasabing huminto o magbigay ng daan, dalawang sasakyan ang sabay dumating. Aling drayber ang dapat na magbigay ng daan?",
         options: ["Ang drayber ng sasakyan sa kanan", "Ang drayber ng sasakyan sa kaliwa", "Alinman sa dalawa ay may unang karapatan sa daan"],
         answer: "Ang drayber ng sasakyan sa kaliwa"
       },
-      {
+      {//5
         question: "Kapag pumaparada sa kalsadang pababa na may bangketa, dapat iayon/ipaling ang mga gulong:",
         options: ["sa direksyon ng bangketa sa kalsada o patungo sa tabi ng daan", "palayo sa bangketa", "kahit sa alinmang direksyon"],
         answer: "sa direksyon ng bangketa sa kalsada o patungo sa tabi ng daan"
       },
-      {
+      {//6
         question: "Nagmamaneho ka sa expressway. Hihinto ka lamang:",
         options: ["kapag nagsasakay o nagbababa ng kargamento o pasahero", "sa lay-by upang sumagot o tumawag ng emergency", "kapag magtatanong ng mga direksyon"],
         answer: "sa lay-by upang sumagot o tumawag ng emergency"
       },
-      {
+      {//7
         question: "Maa-ari ka bang kumanan kapag pula ang nakailaw?",
         options: ["Oo, ito ay protektadong pagliko, kaya may karapatan ka sa daan", "Oo, puwede pero pagkatapos lamang na nakahinto at nagparaan sa mga sasakyan", "Oo, puwede kung may karatula na nagpapahintulot sa iyo na gawin ito. Ang karatula ay maaaring nagsasabing \"Turn Right With Care on Red Signal after a Full Stop\""],
         answer: "Oo, puwede kung may karatula na nagpapahintulot sa iyo na gawin ito. Ang karatula ay maaaring nagsasabing \"Turn Right With Care on Red Signal after a Full Stop\""
       },
-      {
+      {//8
         question: "Ang traffic sign, traffic signal, mga babala at pavement markings ay para lamang sa:",
         options: ["Motorista lamang", "Mga taong dumaraan lamang", "Lahat ng gumagamit ng kalsada"],
         answer: "Lahat ng gumagamit ng kalsada"
       },
-      {
+      {//9
         question: "Ano ang dapat mong gawin kung ikaw ay napipilitang magmaneho ng mabilis dahil sa mga motoristang nasa likuran mo?",
         options: ["Gamit ang directional signal, unti unting lumipat sa daanan ng mga sasakyang mabagal ang takbo, at hayaang makalampas ang mabibilis na sasakyan sa iyong kaliwa", "Tapakan ang preno ng isa o dalawang beses habang paalis sa kalsada", "Buksan ang hazard habang tumatakbo ng mabilis"],
         answer: "Gamit ang directional signal, unti unting lumipat sa daanan ng mga sasakyang mabagal ang takbo, at hayaang makalampas ang mabibilis na sasakyan sa iyong kaliwa"
       },
-      {
+      {//10
         question: "Ano ang dapat mong gawin kung may mga sasakyang lumalampas sa iyong kaliwa?",
         options: ["Huminto at hayaang makalampas ang mga sasakyan", "Panatilihin o di kaya'y bagalan ang takbo at manatili sa kanan", "Bagalan ang takbo at lumipat ng daanan o lane"],
         answer: "Panatilihin o di kaya'y bagalan ang takbo at manatili sa kanan"
       },
-      {
+      {//11
         question: "Ano ang ibig sabihin ng kumikislap na pulang ilaw pantrapiko?",
         options: ["Huminto sa guhit/linya ng paghinto at hintayin ang traffic enforcer", "Bilisan ang takbo para maunahan ang pulang ilaw", "Huminto sa guhit ng paghinto at dumiretsyo kung WALANG panganib"],
         answer: "Huminto sa guhit ng paghinto at dumiretsyo kung WALANG panganib"
       },
-      {
+      {//12
         question: "Ano ang mangyayari kung nag-iiwan ka ng sapat na espasyo sa pagitan ng iyong sasakyan at ng sasakyan sa unahan?",
         options: ["Maaaring makasingit ang ibang motorista", "Higit na madali kang makaiikot at makakaatras", "Maaaring businahan ka ng ibang motorista at lampasan ka"],
         answer: "Higit na madali kang makaiikot at makakaatras"
       },
-      {
+      {//13
         question: "Ang mga drayber na higit na mabagal sa iba ay dapat na nasa:",
         options: ["Daanan o lane sa gawing labas", "Gitnang daanan o lane", "Gawing loob na daanan o lane"],
         answer: "Daanan o lane sa gawing labas"
       },
-      {
+      {//14
         question: "Saan dapat nakaayon/nakapaling ang gulong kung pumaparada sa lugar na pataas na malapit sa gilid ng bangketa?",
         options: ["Diretsyo o paayon sa kalsada", "Palayo sa gilid ng bangketa", "Patungo sa gilid ng bangketa"],
         answer: "Palayo sa gilid ng bangketa"
       },
-      {
+      {//15
         question: "Kung nagmamaneho sa daanan o lane na malapit sa dulo nito, ano ang una mong dapat gawin upang makapasok nang hindi nakakaabala sa daloy ng ibang trapiko?(Rule of continuity line)",
         options: ["Lumipat bigla ng daanan o lane sa kaliwa", "I-angkop ang bilis ng takbo sa daloy ng trapiko", "Pumili ng isang angkop na agwat sa kaliwang daanan o lane"],
         answer: "I-angkop ang bilis ng takbo sa daloy ng trapiko"
       },
-      {
+      {//16
         question: "Alin sa mga Sumusunod ang magpapahusay sa pagkonsumo ng gasolina?",
         options: ["Maikling paglalakbay na may malamig na makina tuwing gabi", "Pagbabawas ng bilis, tamang pagpepreno at pagpaplano ng maayos", "Pagmamaneho sa mga higit na mababang kambiyo habang bukas ang aircon"],
         answer: "Pagbabawas ng bilis, tamang pagpepreno at pagpaplano ng maayos"
       },
-      {
+      {//17
         question: "Alin sa sumusunod na accessory ang ipinag-uutos na marpanatili sa magandang kondisyon?",
         options: ["Seatbelt", "Headlights", "Lahat ng nabanggit"],
         answer: "Lahat ng nabanggit"
       },
-      {
+      {//18
         question: "Kapag pumaparada paahon na daan, dapat mong:",
         options: ["Iliko ang iyong gulong sa gilid ng kalsada", "Iliko ang iyong gulong papalayo sa gilid ng kalsada", "Iliko ang iyong gulong kahanay ng kalsada"],
         answer: "Iliko ang iyong gulong papalayo sa gilid ng kalsada"
       },
-      {
+      {//19
         question: "Anong uri ng insurance ang kinakailangan para sa mga sasakyan?",
         options: ["Comprehensive", "Third party", "Lahat ng nabanggit"],
         answer: "Third party"
       },
-      {
+      {//20
         question: "Kapag nagmamaneho ng sasakyan na may Anti-lock Braking System (ABS) sa pinakamabilis na takbo at kailangan mong biglaang huminto, ano ang dapat mong gawin?",
         options: ["Apakan ang pedal ng preno ng tuloy-tuloy", "Pumreno ng banayad", "Bombahin ang preno"],
         answer: "Pumreno ng banayad"
       },
+      {//21
+        question: "Habang nagmamaneho, dapat kangtumingin sa side at rear view mirror nang:",
+        options: ["Mabilis/Madalian", "Hanggang gusto mo", "Hindi kukulangin sa isang minuto"],
+        answer: "Mabilis/Madalian"
+      },
+      {//22
+        question: "Maaari kang lumusot (mag-overtake) sa kanang bahagi ng sasakyan kung:",
+        options: ["Ang highway ay may dalawa o higit pang linya patungo sa isangdireksyon", "Ang kalsada ay salubungang-daan(two-way)", "Malapad ang bangketa"],
+        answer: "Ang highway ay may dalawa o higit pang linya patungo sa isangdireksyon"
+      },
+      {//23
+        question: "Ang mahuhuling lasing sa alak o gumagamit ng ipinagbabawal na gamot ay may parusang:",
+        options: ["Pagkasuspinde ng lisensya", "Multa at pagkabilanggo", "Tama lahat ang sagot"],
+        answer: "Tama lahat ang sagot"
+      },
+      {//24
+        question: "Bago umalis sa paradahan, dapat mong:",
+        options: ["Suriin ang paligid bago magpatakbo", "Bumusina", "Magpatakbo kaagad"],
+        answer: "Suriin ang paligid bago magpatakbo"
+      },
+      {//25
+        question: "Ang tamang gulang sa pagkuha ng lisensyang Non-Professional ay:",
+        options: ["18 taong gulang", "16 taong gulang", "17 taong gulang"],
+        answer: "17 taong gulang"
+      },
+      {//26
+        question: "Matapos kang lumampas (mag-overtake)at nais mong bumalik sa pinanggalingang linya nang ligtas, kailangan mong:",
+        options: ["Tingan sa “rear view mirror” ang iyong nilagpasan", "Lumingon sa nilagpasan", "Huminto"],
+        answer: "Tingan sa “rear view mirror” ang iyong nilagpasan"
+      },
+      {//27
+        question: "Sa isang interseksyon na may STOP sign, dapat kang:",
+        options: ["Magmarahan at magpatuloy kung walang panganib", "Huminto at magpatuloy kung walang panganib", "Magbigay daan sa mga sasakyan mula sa kanan o kaliwa at magpatuloy kung walang panganib"],
+        answer: "Huminto at magpatuloy kung walang panganib"
+      },
+      {//28
+        question: "Ang pagkakaroon ng lisensya ay isang:",
+        options: ["Karangalan", "Pribilehiyo", "Karapatan"],
+        answer: "Pribilehiyo"
+      },
+      {//29
+        question: "Ang lisensyang Non-Professional ay para lamang sa:",
+        options: ["Mga pribadong sasakyan", "Pampasaherong sasakyan", "Anumang uri ng sasakyan"],
+        answer: "Mga pribadong sasakyan"
+      },
+      {//30
+        question: "Ano ang dapat mong ihanda kung malayoang biyahe?",
+        options: ["Maghanda ng kagamitangpangkumpuni ng sasakyan parahanda kung masiraan ng sasakyan", "Planuhin ang ruta at ikondisyonmuna ang sasakyan", "Tama lahat ang sagot"],
+        answer: "Tama lahat ang sagot"
+      },
+      {//31
+        question: "Ang sasakyan ay nakaparada (parked)kung:",
+        options: ["Nakatigil nang matagal at nagsasakay ng pasahero", "Nakatigil nang matagal at nagbababa ng pasahero", "Nakatigil nang matagal at patay ang makina"],
+        answer: "Nakatigil nang matagal at patay ang makina"
+      },
+      {//32
+        question: "Ano ang kahulugan ng patay-sindingkulay pulang ilaw trapiko?",
+        options: ["Maghintay ng berdeng ilaw", "Bagalan ang takbo at tumuloy nang maingat", "Huminto at magpatuloy kung ligtas"],
+        answer: "Huminto at magpatuloy kung ligtas"
+      },
+      {//33
+        question: "Anong dapat gawin bago lumiko sakanan o kaliwa?",
+        options: ["Biglang lumiko at bumusina", "Magbigay ng hudyat o senyas nahindi kukulangin sa 30 metro ang layo", "Ipagwalang-bahala ang hudyat"],
+        answer: "Magbigay ng hudyat o senyas nahindi kukulangin sa 30 metro ang layo"
+      },
+      {//34
+        question: "Sa paglipat-lipat ng linya, dapat kang sumenyas, tingnan ang rear view mirror at:",
+        options: ["Tingnan kung may paparating nasasakyan", "Bumusina", "Sindihan ang headlight"],
+        answer: "Tingnan kung may paparating nasasakyan"
+      },
+      {//35
+        question: "Sa highway na may dalawang guhit,maaari kang lumusot (mag-overtake)kung sa iyong panig ay:",
+        options: ["Tuluy-tuloy na puting guhit", "Putul-putol na dilaw na guhit", "Tuluy-tuloy na dilaw na guhit"],
+        answer: "Putul-putol na dilaw na guhit"
+      },
+      {//36
+        question: "Ang hindi pagsunod sa ilaw trapiko ay:",
+        options: ["Nagpapatunay na mahusay kang drayber", "Maaaring ikaw ay masangkot sa aksidente", "Nakakatipid sa gasolina"],
+        answer: "Maaaring ikaw ay masangkot sa aksidente"
+      },
+      {//37
+        question: "Mapanganib ang palikong kaliwa kaysa sa kanan sapagkat:",
+        options: ["Mabilis ang sasakyang galing sakaliwa", "Kailangang maging listo sa mgasasakyang nagmumula sa kaliwa o kanan", "Maraming linya ang kalsada"],
+        answer: "Kailangang maging listo sa mgasasakyang nagmumula sa kaliwa o kanan"
+      },
+      {//38
+        question: "Ang pinakaligtas sa ultimatum kahit may karapatan sa daan ay:",
+        options: ["Huwag ipilit ang karapatan", "Bumusina", "Laging ipilit ang karapatan"],
+        answer: "Huwag ipilit ang karapatan"
+      },
+      {//39
+        question: "Hindi dapat lumusot (mag-overtake) sa paanan ng tulay sapagkat:",
+        options: ["May tumatawid", "Hindi nakikita ang kasalubong na sasakyan", "Makipot ang daan"],
+        answer: "Hindi nakikita ang kasalubong na sasakyan"
+      },
+      {//40
+        question: "Ano ang kahulugan ng patay-sinding dilaw na trapiko?",
+        options: ["Magmarahan at magpatuloy kung walang panganib", "Huminto at hintaying magbago ang ilaw", "Hintayin ang berdeng ilaw"],
+        answer: "Magmarahan at magpatuloy kung walang panganib"
+      },
+      {//41
+        question: "Ano ang kahulugan ng tuluy-tuloy na guhit na kulay dilaw?",
+        options: ["Maaaring lumusot (mag-overtake)", "Bawal lumusot", "Tama lahat ang sagot"],
+        answer: "Bawal lumusot"
+      },
+      {//42
+        question: "Ayon sa batas, hindi ka maaaring magmaneho nang matulin, maliban kung:",
+        options: ["Walang panganib", "Naaayon sa takdang bilis o tulin ang pagpapatakbo", "Tama lahat ang sagot"],
+        answer: "Tama lahat ang sagot"
+      },
+      {//43
+        question: "Ang isang may lisensya ay maaaring magmaneho ng:",
+        options: ["Kahit anong uri ng sasakyan", "Sasakyang nakasaad sa lisensya", "Pampasaherong sasakyan lamang"],
+        answer: "Sasakyang nakasaad sa lisensya"
+      },
+      {//44
+        question: "Kung ang nakasalubong mo ay may nakakasilaw na ilaw, ano ang dapat mong gawin?",
+        options: ["Silawin din ang nakasalubong upang magbaba ng ilaw", "Tumingin ng bahagya sa gawing kanan ng kalsada", "Titigan ang nakakasilaw na ilaw"],
+        answer: "Tumingin ng bahagya sa gawing kanan ng kalsada"
+      },
+      {//45
+        question: "Kung parating ka sa isang kurbada, ano ang dapat mong gawin?",
+        options: ["Magmarahan/bagalan ang takbo bago dumating sa kurbada", "Bilisan ang takbo habang nasakurbada", "Magpreno nang bigla habang tumatakbo sa kurbada"],
+        answer: "Magmarahan/bagalan ang takbo bago dumating sa kurbada"
+      },
+      {//46
+        question: "Ano ang kahulugan ng senyas trapikong kulay pula na tatsulok ang hugis?",
+        options: ["Nagtatakda", "Nagbibigay babala", "Nagbibigay impormasyon/kaalaman"],
+        answer: "Nagbibigay babala"
+      },
+      {//47
+        question: "Ano ang kahulugan ng senyas trapiko nakulay asul at puti na parihaba o parisukat ang hugis?",
+        options: ["Nag-uutos ng direksyon", "Nagbibigay babala", "Nagbibigay impormasyon/kaalaman"],
+        answer: "Nagbibigay impormasyon/kaalaman"
+      },
+      {//48
+        question: "Ano ang kahulugan ng senyas trapiko nakulay pula na pabilog, octagon o baligtadna tatsulok?",
+        options: ["Nagtatakda o nagbabawal", "Nagbibigay babala", "Nag-uutos ng direksyon"],
+        answer: "Nagtatakda o nagbabawal"
+      },
+      {//49
+        question: "Ano ang kahulugan ng berdeng ilaw trapiko?",
+        options: ["Senyas upang patakbuhin ang sasakyan", "Huminto sa nakatakdang linya", "Maaari kang tumuloy, bagalan lamang ang takbo"],
+        answer: "Senyas upang patakbuhin ang sasakyan"
+      },
+      {//50
+        question: "Ano ang kahulugan ng patay-sinding ilawna pulang ilaw trapiko?",
+        options: ["Huminto sa nakatakdang linya", "Huminto sandali at ituloy angpagpapatakbo kung walang panganib", "Bilisan ang pagpapatakbo"],
+        answer: "Huminto sandali at ituloy angpagpapatakbo kung walang panganib"
+      },
+      {//51
+        question: "Ano ang kahulugan ng dilaw na signal trapiko?",
+        options: ["Huminto", "Humanda sa paghinto at malapit nang sumindi ang ilaw trapiko nakulay pula", "Maaari kang tumuloy, bagalan lamang ang pagpapatakbo"],
+        answer: "Humanda sa paghinto at malapit nang sumindi ang ilaw trapiko nakulay pula"
+      },
+      {//52
+        question: "Ano ang kahulugan ng berdeng signaltrapiko?",
+        options: ["Patakbuhin nang tuluy-tuloy ang sasakyan", "Huminto", "Bagalan ang pagpapatakbo"],
+        answer: "Patakbuhin nang tuluy-tuloy ang sasakyan"
+      },
+      {//53
+        question: "Ano ang ibig sabihin ng berdeng palaso na signal trapiko?",
+        options: ["Hindi pinapayagan ang pagpasok sa interseksyon na itinuturo ng palaso", "Nagpapahintulot sa mga sasakyan na kumaliwa o kumanan", "Nagpapahintulot sa pagtawid ng mga taong tatawid"],
+        answer: "Nagpapahintulot sa mga sasakyan na kumaliwa o kumanan"
+      },
+      {//54
+        question: "Ano ang kahulugan ng dilaw na palasong signal trapiko?",
+        options: ["Naghuhudyat ng pakanan o pakaliwang direksyon", "Nangangahulugan na ang pulang palaso na signal trapiko ay malapit nang sumindi", "Nagpapahintulot sa mga sasakyan na kumanan, kumaliwa o dumiretso"],
+        answer: "Nangangahulugan na ang pulang palaso na signal trapiko ay malapit nang sumindi"
+      },
+      {//55
+        question: "Ano ang ibig sabihin ng puting linya sa daan?",
+        options: ["Naghahati sa mga “lanes” na tumatakbo sa isang direksyon", "Naghihiwalay sa trapiko na tumakbo sa isang direksyon", ""],
+        answer: "Naghihiwalay sa trapiko na tumakbo sa isang direksyon"
+      },
+      {//56
+        question: "Ang dilaw na linyang putul-putol ay palatandaan na:",
+        options: ["Pinapayagan ang paglusot sa kanan", "Ipinagbabawal ang paglusot sakanan o kaliwa", "Pinapayagan ang paglusot sa kaliwa"],
+        answer: "Pinapayagan ang paglusot sa kaliwa"
+      },
+      {//57
+        question: "Ang puting linyang putul-putol aypalatandaan na:",
+        options: ["Maaaring lumusot pakaliwa o pakanan kung walang peligro", "Ipinagbabawal ang paglusot sa kaliwa", "Ipinagbabawal ang paglusot sa kanan"],
+        answer: "Maaaring lumusot pakaliwa o pakanan kung walang peligro"
+      },
+      {//58
+        question: "Kailan dapat magdesisyon ang isang drayber?",
+        options: ["Kung buhul-buhol na ang trapiko", "Kung mahusay siyang magmaneho", "Habang siya ay nagmamaneho"],
+        answer: "Habang siya ay nagmamaneho"
+      },
+      {//59
+        question: "Kung ang drayber ng sasakyan na nasaunahan mo ay naglabas ng kaliwang kamay at inunat ito paitaas, nakakatiyak ka na siya ay:",
+        options: ["Kakaliwa", "Kakanan", "Hihinto"],
+        answer: "Kakanan"
+      },
+      {//60
+        question: "Kailangang magbigay ng senyas kung kakanan o kakaliwa ang drayber sa darating na interseksyon sa layong:",
+        options: ["15 metro", "60 metro", "30 metro"],
+        answer: ""
+      },
+      {//61
+        question: "Kung gusto mong magpalit ng lane sa highway, kailangang magsignal:",
+        options: ["Sampung segundo bago gawin ito", "Limang minuto bago gawin ito", "Isang minuto bago gawin ito"],
+        answer: "Sampung segundo bago gawin ito"
+      },
+      {//62
+        question: "Sa naka-motorsiklo na may balak lumiko pakanan, ang dapat gamitin na senyas ay:",
+        options: ["Kaliwang kamay na nakataas", "Kanang kamay na diretsong nagtuturo pakanan", "Kanang kamay na nakataas"],
+        answer: "Kaliwang kamay na nakataas"
+      },
+      {//63
+        question: "Ang kailangang distansya sa pagitan ng sinusundang sasakyan ay:",
+        options: ["Sinlaki ng sukat ng dalawang sasakyan", "Sinlaki ng sukat ng isang sasakyan", "Sinlaki ng sukat ng tatlong sasakyan"],
+        answer: "Sinlaki ng sukat ng isang sasakyan"
+      },
+      {//64
+        question: "Saang lugar hindi ka dapat lumusot(mag-overtake)?",
+        options: ["Sa sangandaan o interseksyon", "Sa paanan ng tulay", "Tama lahat ang sagot"],
+        answer: "Tama lahat ang sagot"
+      },
+      {//65
+        question: "Ang paggamit ng huwad (fake) nalisensya ay ipinagbabawal at may parusang:",
+        options: ["Php 1,500.00 at anim na buwan na hindi makakakuha ng lisensya", "Pagkabilanggo nang hindi hihigit sa anim na buwan", "Php 300.00"],
+        answer: "Php 1,500.00 at anim na buwan na hindi makakakuha ng lisensya"
+      },
+      {//66
+        question: "Ano ang dapat gawin kung pinahihinto ng pulis?",
+        options: ["Huminto at ibigay ang lisensya at ibang papeles ng sasakyan kung hinihingi", "Huwag pansinin ang pulis at bilisan ang pagpapatakbo", "Huminto at makipagtalo sa pulis"],
+        answer: "Huminto at ibigay ang lisensya at ibang papeles ng sasakyan kung hinihingi"
+      },
+      {//67
+        question: "Ang dalawang dilaw na linya na putul-putol ay palatandaan na:",
+        options: ["Ipinagbabawal ang paglusot sa kaliwa", "Maaaring lumusot ng pakanan o pakaliwa kung walang peligro", "Ipinagbabawal ang paglusot sa kanan"],
+        answer: "Maaaring lumusot ng pakanan o pakaliwa kung walang peligro"
+      },
+      {//68
+        question: "Kung ang drayber ng sasakyan na nasa unahan mo ay naglabas ng kaliwang kamay na nakaturo sa kaliwa, siya ay:",
+        options: ["Kakanan", "Hihinto", "Kakaliwa"],
+        answer: "Kakaliwa"
+      },
+      {//69
+        question: "Kung umilaw ang “brake lights” ng sasakyang nasa unahan mo, dapat kang:",
+        options: ["Bumusina", "Humanda sa pagpreno", "Lumiko sa kanan o kaliwa"],
+        answer: "Humanda sa pagpreno"
+      },
+      {//70
+        question: "Ang busina ay ginagamit upang:",
+        options: ["Makalikha ng ingay", "Iparinig na maganda ang tunog ng busina", "Makapagbigay babala ngkaligtasan o pag-iingat upang maiwasan ang aksidente"],
+        answer: ""
+      },
+
       
 
       // Add up to 100 questions
@@ -276,11 +527,11 @@
       quizContent.style.display = "none";
       resultEl.style.display = "block";
       scoreEl.textContent = `${score} / ${shuffledQuestions.length}`;
-      const percentage = (score / shuffledQuestions.length) * 100;
+      const percentage = (score / shuffledQuestions.length) * 70;
       let msg = "";
-      if (percentage >= 20) msg = "Yown! Perfect na to sa LTO :D! Labyu :)";
-      else if (percentage >= 17) msg = "Good job! Papasa na :)! Labyu :)";
-      else if (percentage >= 16) msg = "Pwede na!, review pa para sure! Labyu :)";
+      if (percentage >= 65) msg = "Yown! Perfect na to sa LTO :D! Labyu :)";
+      else if (percentage >= 60) msg = "Good job! Papasa na :)! Labyu :)";
+      else if (percentage >= 56) msg = "Pwede na!, review pa para sure! Labyu :)";
       else msg = "Retake lang! Kaya yan! Labyu :)";
       messageEl.textContent = msg;
     }
@@ -292,7 +543,3 @@
   </script>
 </body>
 </html>
-
-
-
-
