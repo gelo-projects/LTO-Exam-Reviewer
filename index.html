@@ -529,10 +529,10 @@
       scoreEl.textContent = `${score} / ${shuffledQuestions.length}`;
       const percentage = (score / shuffledQuestions.length) * 30;
       let msg = "";
-      if (percentage >= 29) msg = "Yown! Perfect na to sa LTO :D! Labyu :)";
-      else if (percentage >= 28) msg = "Good job! Papasa na :)! Labyu :)";
-      else if (percentage >= 24) msg = "Pwede na!, review pa para sure! Labyu :)";
-      else msg = "Retake lang! Kaya yan! Labyu :)";
+      if (percentage >= 29) msg = "Yown! Perfect na to sa LTO :D!";
+      else if (percentage >= 28) msg = "Good job! Papasa na :)! ";
+      else if (percentage >= 24) msg = "Pwede na!, review pa para sure!";
+      else msg = "Retake lang! Kaya yan!";
       messageEl.textContent = msg;
     }
 
@@ -543,6 +543,7 @@
   </script>
 </body>
 </html>
+
 
 
 
